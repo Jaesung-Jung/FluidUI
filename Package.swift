@@ -4,20 +4,26 @@
 import PackageDescription
 
 let package = Package(
-    name: "FluidUI",
-    products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "FluidUI",
-            targets: ["FluidUI"]),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "FluidUI"),
-        .testTarget(
-            name: "FluidUITests",
-            dependencies: ["FluidUI"]),
-    ]
+  name: "FluidUI",
+  platforms: [
+    .iOS(.v16),
+    .macCatalyst(.v16),
+    .tvOS(.v16),
+    .watchOS(.v9)
+  ],
+  products: [
+    .library(
+      name: "FluidUI",
+      targets: ["FluidUI"]
+    ),
+  ],
+  targets: [
+    .target(
+      name: "FluidUI"
+    ),
+    .testTarget(
+      name: "FluidUITests",
+      dependencies: ["FluidUI"]
+    ),
+  ]
 )
