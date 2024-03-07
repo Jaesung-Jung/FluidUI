@@ -12,18 +12,27 @@ let package = Package(
     .watchOS(.v9)
   ],
   products: [
-    .library(
-      name: "FluidUI",
-      targets: ["FluidUI"]
-    ),
+    .library(name: "FluidUI", targets: ["FluidUI"]),
+    .library(name: "RxFluidUI", targets: ["RxFluidUI"]),
+  ],
+  dependencies: [
+    .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.0.0")),
   ],
   targets: [
+    .target(name: "FluidUI"),
     .target(
-      name: "FluidUI"
+      name: "RxFluidUI",
+      dependencies: [
+        "FluidUI",
+        .product(name: "RxSwift", package: "RxSwift"),
+        .product(name: "RxCocoa", package: "RxSwift")
+      ]
     ),
     .testTarget(
       name: "FluidUITests",
-      dependencies: ["FluidUI"]
+      dependencies: [
+        "FluidUI"
+      ]
     ),
   ]
 )

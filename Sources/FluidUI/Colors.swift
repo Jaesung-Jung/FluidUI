@@ -53,16 +53,17 @@ extension UIColor {
 
     // Label Colors
     public static let primary     = UIColor(light: #colorLiteral(red: 0.1019607843, green: 0.1019607843, blue: 0.1019607843, alpha: 1), dark: #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1))
-    public static let secondary   = UIColor(light: #colorLiteral(red: 0.5568627451, green: 0.5568627451, blue: 0.5764705882, alpha: 0.6), dark: #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9607843137, alpha: 0.6))
-    public static let tertiary    = UIColor(light: #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.3), dark: #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9607843137, alpha: 0.3))
-    public static let quaternary  = UIColor(light: #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.18), dark: #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9607843137, alpha: 0.18))
-    public static let placeholder = UIColor(light: #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.6), dark: #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9607843137, alpha: 0.6))
+    public static let secondary   = UIColor(light: #colorLiteral(red:0.235, green:0.235, blue:0.263, alpha:0.60), dark: #colorLiteral(red:0.922, green:0.922, blue:0.961, alpha:0.60))
+    public static let tertiary    = UIColor(light: #colorLiteral(red:0.235, green:0.235, blue:0.263, alpha:0.30), dark: #colorLiteral(red:0.922, green:0.922, blue:0.961, alpha:0.30))
+    public static let quaternary  = UIColor(light: #colorLiteral(red:0.235, green:0.235, blue:0.263, alpha:0.18), dark: #colorLiteral(red:0.922, green:0.922, blue:0.961, alpha:0.16))
+    public static var placeholder = UIColor(light: #colorLiteral(red:0.24, green:0.24, blue:0.26, alpha:0.3), dark: #colorLiteral(red:0.92, green:0.92, blue:0.96, alpha:0.3))
 
     // Fill Colors
     public static let background  = UIColor(light: #colorLiteral(red:1.000, green:1.000, blue:1.000, alpha:1.00), dark: #colorLiteral(red: 0.109, green: 0.109, blue: 0.117, alpha: 1))
-    public static let disabled    = UIColor(light: #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.33), dark: #colorLiteral(red: 0.9215686275, green: 0.9215686275, blue: 0.9607843137, alpha: 0.33))
+    public static let disabled    = UIColor.fluid.tertiary
     public static let highlighted = UIColor(light: #colorLiteral(red:0.557, green:0.557, blue:0.576, alpha:0.25), dark: #colorLiteral(red:0.557, green:0.557, blue:0.576, alpha:0.25))
     public static let selected    = UIColor.fluid.gray5
+    public static let separator   = UIColor(light: #colorLiteral(red: 0.2352941176, green: 0.2352941176, blue: 0.262745098, alpha: 0.28), dark: #colorLiteral(red: 0.3294117647, green: 0.3294117647, blue: 0.3450980392, alpha: 0.32))
     public static let shadow      = UIColor(white: 0, alpha: 0.33)
 
     // Elevation Colors
@@ -81,47 +82,46 @@ extension CGColor {
   public static let fluid = Fluid.self
 
   public struct Fluid {
-    public struct Fluid {
-      // Accent Colors
-      @inlinable public static var red: CGColor { UIColor.fluid.red.cgColor }
-      @inlinable public static var orange: CGColor { UIColor.fluid.orange.cgColor }
-      @inlinable public static var yellow: CGColor { UIColor.fluid.yellow.cgColor }
-      @inlinable public static var green: CGColor { UIColor.fluid.green.cgColor }
-      @inlinable public static var mint: CGColor { UIColor.fluid.mint.cgColor }
-      @inlinable public static var teal: CGColor { UIColor.fluid.teal.cgColor }
-      @inlinable public static var cyan: CGColor { UIColor.fluid.cyan.cgColor }
-      @inlinable public static var blue: CGColor { UIColor.fluid.blue.cgColor }
-      @inlinable public static var indigo: CGColor { UIColor.fluid.indigo.cgColor }
-      @inlinable public static var purple: CGColor { UIColor.fluid.purple.cgColor }
-      @inlinable public static var pink: CGColor { UIColor.fluid.pink.cgColor }
-      @inlinable public static var brown: CGColor { UIColor.fluid.brown.cgColor }
+    // Accent Colors
+    @inlinable public static var red: CGColor { UIColor.fluid.red.cgColor }
+    @inlinable public static var orange: CGColor { UIColor.fluid.orange.cgColor }
+    @inlinable public static var yellow: CGColor { UIColor.fluid.yellow.cgColor }
+    @inlinable public static var green: CGColor { UIColor.fluid.green.cgColor }
+    @inlinable public static var mint: CGColor { UIColor.fluid.mint.cgColor }
+    @inlinable public static var teal: CGColor { UIColor.fluid.teal.cgColor }
+    @inlinable public static var cyan: CGColor { UIColor.fluid.cyan.cgColor }
+    @inlinable public static var blue: CGColor { UIColor.fluid.blue.cgColor }
+    @inlinable public static var indigo: CGColor { UIColor.fluid.indigo.cgColor }
+    @inlinable public static var purple: CGColor { UIColor.fluid.purple.cgColor }
+    @inlinable public static var pink: CGColor { UIColor.fluid.pink.cgColor }
+    @inlinable public static var brown: CGColor { UIColor.fluid.brown.cgColor }
 
-      // Gray Colors
-      @inlinable public static var gray: CGColor { UIColor.fluid.gray.cgColor }
-      @inlinable public static var gray2: CGColor { UIColor.fluid.gray2.cgColor }
-      @inlinable public static var gray3: CGColor { UIColor.fluid.gray3.cgColor }
-      @inlinable public static var gray4: CGColor { UIColor.fluid.gray4.cgColor }
-      @inlinable public static var gray5: CGColor { UIColor.fluid.gray5.cgColor }
-      @inlinable public static var gray6: CGColor { UIColor.fluid.gray6.cgColor }
+    // Gray Colors
+    @inlinable public static var gray: CGColor { UIColor.fluid.gray.cgColor }
+    @inlinable public static var gray2: CGColor { UIColor.fluid.gray2.cgColor }
+    @inlinable public static var gray3: CGColor { UIColor.fluid.gray3.cgColor }
+    @inlinable public static var gray4: CGColor { UIColor.fluid.gray4.cgColor }
+    @inlinable public static var gray5: CGColor { UIColor.fluid.gray5.cgColor }
+    @inlinable public static var gray6: CGColor { UIColor.fluid.gray6.cgColor }
 
-      // Label Colors
-      @inlinable public static var primary: CGColor { UIColor.fluid.primary.cgColor }
-      @inlinable public static var secondary: CGColor { UIColor.fluid.secondary.cgColor }
-      @inlinable public static var tertiary: CGColor { UIColor.fluid.tertiary.cgColor }
-      @inlinable public static var quaternary: CGColor { UIColor.fluid.quaternary.cgColor }
-      @inlinable public static var placeholder: CGColor { UIColor.fluid.placeholder.cgColor }
+    // Label Colors
+    @inlinable public static var primary: CGColor { UIColor.fluid.primary.cgColor }
+    @inlinable public static var secondary: CGColor { UIColor.fluid.secondary.cgColor }
+    @inlinable public static var tertiary: CGColor { UIColor.fluid.tertiary.cgColor }
+    @inlinable public static var quaternary: CGColor { UIColor.fluid.quaternary.cgColor }
+    @inlinable public static var placeholder: CGColor { UIColor.fluid.placeholder.cgColor }
 
-      // Fill Colors
-      @inlinable public static var background: CGColor { UIColor.fluid.background.cgColor }
-      @inlinable public static var disabled: CGColor { UIColor.fluid.disabled.cgColor }
-      @inlinable public static var highlighted: CGColor { UIColor.fluid.highlighted.cgColor }
-      @inlinable public static var selected: CGColor { UIColor.fluid.selected.cgColor }
-      @inlinable public static var shadow: CGColor { UIColor.fluid.shadow.cgColor }
+    // Fill Colors
+    @inlinable public static var background: CGColor { UIColor.fluid.background.cgColor }
+    @inlinable public static var disabled: CGColor { UIColor.fluid.disabled.cgColor }
+    @inlinable public static var highlighted: CGColor { UIColor.fluid.highlighted.cgColor }
+    @inlinable public static var selected: CGColor { UIColor.fluid.selected.cgColor }
+    @inlinable public static var separator: CGColor { UIColor.fluid.separator.cgColor }
+    @inlinable public static var shadow: CGColor { UIColor.fluid.shadow.cgColor }
 
-      // Elevation Colors
-      @inlinable public static var elevatedPrimary: CGColor { UIColor.fluid.elevatedPrimary.cgColor }
-      @inlinable public static var elevatedSecondary: CGColor { UIColor.fluid.elevatedSecondary.cgColor }
-    }
+    // Elevation Colors
+    @inlinable public static var elevatedPrimary: CGColor { UIColor.fluid.elevatedPrimary.cgColor }
+    @inlinable public static var elevatedSecondary: CGColor { UIColor.fluid.elevatedSecondary.cgColor }
   }
 }
 
@@ -164,6 +164,7 @@ extension Color {
     public static let disabled    = Color(uiColor: .fluid.disabled)
     public static let highlighted = Color(uiColor: .fluid.highlighted)
     public static let selected    = Color(uiColor: .fluid.selected)
+    public static let separator   = Color(uiColor: .fluid.separator)
     public static let shadow      = Color(uiColor: .fluid.shadow)
 
     // Elevation Colors
@@ -221,13 +222,24 @@ extension ShapeStyle where Self == Color {
       ]
     ),
     ColorSet(
-      name: "Fill Colors",
+      name: "Label Colors",
       items: [
         ColorSet.Item(name: "Primary", color: .fluid.primary),
         ColorSet.Item(name: "Secondary", color: .fluid.secondary),
         ColorSet.Item(name: "Tertiary", color: .fluid.tertiary),
         ColorSet.Item(name: "Quaternary", color: .fluid.quaternary),
         ColorSet.Item(name: "Placeholder", color: .fluid.placeholder)
+      ]
+    ),
+    ColorSet(
+      name: "Fill Colors",
+      items: [
+        ColorSet.Item(name: "Background", color: .fluid.background),
+        ColorSet.Item(name: "Disabled", color: .fluid.disabled),
+        ColorSet.Item(name: "Highlighted", color: .fluid.highlighted),
+        ColorSet.Item(name: "Selected", color: .fluid.selected),
+        ColorSet.Item(name: "Separator", color: .fluid.separator),
+        ColorSet.Item(name: "Shadow", color: .fluid.shadow)
       ]
     ),
     ColorSet(
