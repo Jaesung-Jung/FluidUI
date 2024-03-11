@@ -125,6 +125,27 @@ extension TextBoxStyle where Self == BorderedTextBoxStyle {
   public static var bordered: BorderedTextBoxStyle { BorderedTextBoxStyle() }
 }
 
+// MARK: - RoundedTextBoxStyle
+
+public struct RoundedTextBoxStyle: TextBoxStyle {
+  public init() {
+  }
+
+  public func makeBody(configuration: Configuration) -> some View {
+    PlainTextBoxStyle()
+      .makeBody(configuration: configuration)
+      .padding(10)
+      .background {
+        RoundedRectangle(cornerRadius: 8, style: .continuous)
+          .fill(.fluid.elevatedPrimary)
+      }
+  }
+}
+
+extension TextBoxStyle where Self == RoundedTextBoxStyle {
+  public static var rounded: RoundedTextBoxStyle { RoundedTextBoxStyle() }
+}
+
 // MARK: - FloatingLabelTextBoxStyle
 
 public struct FloatingLabelTextBoxStyle: TextBoxStyle {
@@ -285,6 +306,15 @@ extension View {
         header(".bordered")
       }
       .textBoxStyle(.bordered)
+      .listRowSeparator(.hidden)
+
+      Section {
+        TextBox("TextBox", text: .constant(""))
+        TextBox("TextBox", text: .constant("Text"))
+      } header: {
+        header(".rounded")
+      }
+      .textBoxStyle(.rounded)
       .listRowSeparator(.hidden)
 
       Section {

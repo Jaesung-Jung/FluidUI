@@ -70,3 +70,85 @@ extension UIImage.Configuration {
     UIImage.SymbolConfiguration(paletteColors: paletteColors)
   }
 }
+
+// MARK: - UIView (CALayer)
+
+extension UIView {
+  @inlinable public func addSublayer(_ sublayer: CALayer) {
+    layer.addSublayer(sublayer)
+  }
+
+  @objc public dynamic var cornerRadius: CGFloat {
+    get { layer.cornerRadius }
+    set { layer.cornerRadius = newValue }
+  }
+
+  @objc public dynamic var maskedCorners: CACornerMask {
+    get { layer.maskedCorners }
+    set { layer.maskedCorners = newValue }
+  }
+
+  @objc public dynamic var cornerCurve: CALayerCornerCurve {
+    get { layer.cornerCurve }
+    set { layer.cornerCurve = newValue }
+  }
+
+  @objc public dynamic var borderWidth: CGFloat {
+    get { layer.borderWidth }
+    set { layer.borderWidth = newValue }
+  }
+
+  @objc public dynamic var borderColor: UIColor? {
+    get { layer.borderColor.map { UIColor(cgColor: $0) } }
+    set { layer.borderColor = newValue?.cgColor }
+  }
+
+  @objc public dynamic var shouldRasterize: Bool {
+    get { layer.shouldRasterize }
+    set { layer.shouldRasterize = newValue }
+  }
+
+  @objc public dynamic var rasterizationScale: CGFloat {
+    get { layer.rasterizationScale }
+    set { layer.rasterizationScale = newValue }
+  }
+}
+
+// MARK: - UIView (Shadow)
+
+extension UIView {
+  public class Shadow {
+    let layer: CALayer
+
+    init(_ layer: CALayer) {
+      self.layer = layer
+    }
+
+    public var color: UIColor? {
+      get { layer.shadowColor.map { UIColor(cgColor: $0) } }
+      set { layer.shadowColor = newValue?.cgColor }
+    }
+
+    public var opacity: Float {
+      get { layer.shadowOpacity }
+      set { layer.shadowOpacity = newValue }
+    }
+
+    public var offset: CGSize {
+      get { layer.shadowOffset }
+      set { layer.shadowOffset = newValue }
+    }
+
+    public var radius: CGFloat {
+      get { layer.shadowRadius }
+      set { layer.shadowRadius = newValue }
+    }
+
+    public var path: UIBezierPath? {
+      get { layer.shadowPath.map { UIBezierPath(cgPath: $0) } }
+      set { layer.shadowPath = newValue?.cgPath }
+    }
+  }
+
+  public var shadow: UIView.Shadow { UIView.Shadow(layer) }
+}
